@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { 
+        margin: 1em auto; 
+        max-width: 800px; 
+        width: 95%; 
+        font: 18px/1.5 sans-serif; 
+        text-align: center; 
+    }
+    .example-wrapper code { 
+        background: #F5F5F5; 
+        padding: 2px 6px; 
+    }
+    .green-text { 
+        color: green; 
+        display: inline-block; 
+        vertical-align: middle; 
+    }
+    .logo { 
+        width: 100px; 
+        height: auto; 
+        vertical-align: middle; 
+        margin-left: 10px; 
+    }
+    .dog-trainer-image { 
+        display: block; 
+        border-radius: 20px;
+        margin: 0 auto; /* Centre l'image horizontalement */
+        max-width: 100%; /* Assure qu'elle ne déborde pas */
+        height: auto; /* Maintient l'aspect ratio */
+    }
+</style>
+
+<div class="example-wrapper">
+    <h1 class="green-text">Dresseur Canin</h1>
+    <img src="images/logo_educateur_comportementaliste_centre_canin_ardenne.png" class="logo" alt="Logo Éducateur">
+    <p>
+        <img src="images/dresseur-de-chien.jpg" alt="image" class="dog-trainer-image"> <!-- Ajout de la classe pour centrer l'image -->
+    </p>
+</div>
+{% endblock %}
+
+
