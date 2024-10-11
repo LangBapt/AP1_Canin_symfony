@@ -14,7 +14,7 @@ class Avis
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[ORM\Column(type: Types::TEXT, nullable: false)]
     private ?string $descAvis = null;
 
     #[ORM\ManyToOne(inversedBy: 'avis')]
