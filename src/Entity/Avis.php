@@ -18,7 +18,7 @@ class Avis
     private ?string $descAvis = null;
 
     #[ORM\ManyToOne(inversedBy: 'avis')]
-    private ?utilisateur $numUser = null;
+    private ?user $numUser = null;
 
     public function getId(): ?int
     {
@@ -37,12 +37,12 @@ class Avis
         return $this;
     }
 
-    public function getNumUser(): ?utilisateur
+    public function getNumUser(): ?user
     {
         return $this->numUser;
     }
 
-    public function setNumUser(?utilisateur $numUser): static
+    public function setNumUser(?user $numUser): static
     {
         $this->numUser = $numUser;
 
