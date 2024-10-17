@@ -14,7 +14,7 @@ class ConnexionController extends AbstractController
     {
         // Si l'utilisateur est déjà connecté, on le redirige vers la page d'accueil
         if ($this->getUser()) {
-            return $this->redirectToRoute('home'); // Correction ici : route par nom, sans '/'
+            return $this->redirectToRoute('prestations'); // Correction ici : route par nom, sans '/'
         }
 
         // Récupérer l'erreur de connexion s'il y en a une
