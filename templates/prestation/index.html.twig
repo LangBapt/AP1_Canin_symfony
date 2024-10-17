@@ -18,7 +18,7 @@
                                 <label for="nom">Nom :</label>
                                 <input type="text" name="nom" class="form-control mb-2" value="{{ prestation.titrePresta }}">
 
-                                <label for="prix">Prix (€) :</label>
+                                <label for="prix">Prix horaire(€) :</label>
                                 <input type="number" name="prix" class="form-control mb-2" value="{{ prestation.prixHorairePresta }}">
 
                                 <label for="descriptif">Descriptif :</label>
@@ -36,10 +36,10 @@
                                 </div>
                             </form>
                         {% else %}
-                            
+
                             <h2 class="card-title text-center">{{ prestation.titrePresta }}</h2>
                             <h3 class="card-price text-center">{{ prestation.prixHorairePresta }} €/heure</h3>
-                            <p class="card-text text-center">{{ prestation.textePresta }}</p>
+                            <p class="card-text text-left">{{ prestation.textePresta }}</p>
                         {% endif %}
                     </div>
                 </div>
