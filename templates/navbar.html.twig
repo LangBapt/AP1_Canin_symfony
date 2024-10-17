@@ -1,31 +1,3 @@
-<<<<<<< HEAD
-<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-  <div class="container-fluid">
-    
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">Connexion
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Présentation</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Préstations</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="avis">Avis</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contacts</a>
-        </li>
-      </ul>
-=======
 {% if app.user %}
   <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">   
@@ -46,14 +18,13 @@
             <a class="nav-link" href="{{ path('prestations')}}">Prestations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Avis</a>
+            <a class="nav-link" href="">Avis</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Contacts</a>
           </li>
         </ul>
       </div>
->>>>>>> origin/developp
     </div>
   </nav>
 {% else %}
@@ -67,7 +38,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Accueil</a>
+            <a class="nav-link" href="{{ path('app_accueil')}}">Accueil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">Présentation</a>
@@ -76,7 +47,7 @@
             <a class="nav-link" href="{{ path('prestations')}}">Prestations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Avis</a>
+            <a class="nav-link" href="{{ path('avis')}}">Avis</a>
           </li>
         </ul>
       </div>

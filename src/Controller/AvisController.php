@@ -25,17 +25,26 @@ class AvisController extends AbstractController
         $AvisRepository=$entityManager->getRepository(Avis::class);
         $AVV=$AvisRepository->findAll();
 
-        if($form->isSubmitted() && $form->isValid()){
-            $entityManager->persist($avis);
-
-            $entityManager->flush();
-
-            return $this->render('avis/confirmation.html.twig');
-        }
 
         return $this->render('avis/index.html.twig', [
             'form' => $form->createView(),
             'AVV'=>$AVV,
         ]);
     }
+
+    #[Route('/avis/{id}', name: 'avis.delete', methods: ['DELETE'])]
+    public function delete(Avis $avis, EntityManagerInterface $manager, Request $request): Response
+    {
+    $data = json_decode($request->getContent(), true);
+    if ($this->isCsrfTokenValid('delete' . $avis->getId(), $data['_token'])) {
+        $manager->remove($avis);
+        $manager->flush();
+
+        $this->addFlash('success', 'Votre commentaire a bien été supprimé.');
+        return new JsonResponse(['success' => true], 200);
+    }
+    
+    return new JsonResponse(['error' => 'Token invalide'], 400);
+    }
+
 }

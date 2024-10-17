@@ -4,102 +4,79 @@
 
 {% block body %}
 
+<div class="example-wrapper"> 
+    <h1 class="green-text">Ajouter un Avis</h1>
 
-    <h1 class="green-text">Avis</h1>
+    {{ form_start(form) }}
+    <div class="form-container">
 
-
-        {{ form_start(form) }}
         <div class="form-elements">
-
-     
             <label for="descAvis">Donner votre avis</label>
             {{ form_widget(form.descAvis, {'attr': {'placeholder': 'Ecrire votre Avis'}}) }}
-            
-
-            {% if form.descAvis.vars.errors|length > 0 %}
-                <div class="error-message" style="color: red;">
-                    $this->addFlash($type, $message);
-                </div>
-            {% endif %}
-
-                    <a href= {{path("app_ajout_avis")}}>
-        <button type="submit" class="btn-submit">Valider</button>
-        </a>
 
         </div>
+        <a href= {{path("app_confirmation_a")}}>
+        <button type="submit" class="btn-submit">Valider</button>
 
-{{ form_end(form) }}
+    </div>
+    {{ form_end(form) }}
 
+    <style>
+        .example-wrapper { 
+            margin: 1em auto; 
+            max-width: 800px; 
+            width: 95%; 
+            font: 18px/1.5 sans-serif; 
+            text-align: center; 
+            border: 1px solid #ccc; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .green-text { 
+            color: green; 
+            display: inline-block; 
+            vertical-align: middle; 
+            margin-bottom: 20px; 
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-elements {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 10px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .form-elements input, .form-elements textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-submit {
+            background-color: green;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</div>
 
-
-        <style>
-    .example-wrapper { 
-        margin: 1em auto; 
-        max-width: 800px; 
-        width: 95%; 
-        font: 18px/1.5 sans-serif; 
-        text-align: center; 
-        border: 1px solid #ccc; 
-        padding: 20px; 
-        border-radius: 10px; 
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    .green-text { 
-        color: green; 
-        display: inline-block; 
-        vertical-align: middle; 
-        margin-bottom: 20px; 
-    }
-    .form-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .form-elements {
-        width: 600px;
-        max-width: 400px;
-        margin-bottom: 10px;
-    }
-    label {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 5px;
-        text-align: left;
-    }
-    .form-elements input, .form-elements textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .btn-submit {
-        background-color: green;
-        color: white;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s;
-    }
-    .btn-submit:hover {
-        background-color: darkgreen;
-    }
-
-    /* Table centrée et avec même largeur que le formulaire */
-    .table {
-        width: 600px;  /* même largeur que le formulaire */
-        margin: 20px auto;  /* centrée sur la page */
-        border-collapse: collapse;
-    }
-    .table th, .table td {
-        padding: 10px;
-        text-align: left;
-        border: 1px solid #ccc;
-    }
-</style>
-{% endblock %} 
-
-
+{% endblock %}

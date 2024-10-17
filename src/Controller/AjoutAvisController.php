@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class AjoutAvisController extends AbstractController
 {
-    #[Route('/ajout/avis', name: 'app_ajout_avis')]
+    #[Route('/ajoutavis', name: 'app_ajout_avis')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
 
@@ -23,6 +23,14 @@ class AjoutAvisController extends AbstractController
 
         $AvisRepository=$entityManager->getRepository(Avis::class);
         $AVV=$AvisRepository->findAll();
+
+        if($form->isSubmitted() && $form->isValid()){
+            $entityManager->persist($avis);
+
+            $entityManager->flush();
+
+            return $this->render('confirmation_a/index.html.twig');
+        }
 
 
 
