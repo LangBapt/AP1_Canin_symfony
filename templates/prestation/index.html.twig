@@ -11,10 +11,30 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>D:/BTS SIO 2ème année/AP/AP1_Canin_symfony/src/Controller/PrestationController.php</code></li>
-        <li>Your template at <code>D:/BTS SIO 2ème année/AP/AP1_Canin_symfony/templates/prestation/index.html.twig</code></li>
-    </ul>
-</div>
+                                <label for="descriptif">Descriptif :</label>
+                                <textarea name="descriptif" class="form-control mb-2">{{ prestation.textePresta }}</textarea>
+                                
+                                <div class="d-flex justify-content-between mt-3"> <!-- Centrer les boutons et les espacer -->
+                                    <button type="submit" class="btn btn-primary w-45">Modifier</button>
+                                    
+                                    <form action="{{ path('prestations_delete', {id: prestation.id}) }}" method="POST" class="d-inline-block">
+                                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('delete' ~ prestation.id) }}">
+                                        <button class="btn btn-danger w-45" type="submit" onclick="return confirm('Voulez-vous vraiment supprimer cette prestation ?');">
+                                            Supprimer
+                                        </button>
+                                    </form>
+                                </div>
+                            </form>
+                        {% else %}
+                            <h2 class="card-title text-center">{{ prestation.titrePresta }}</h2>
+                            <h3 class="card-price text-center">{{ prestation.prixHorairePresta }} €/heure</h3>
+                            <p class="card-text text-center">{{ prestation.textePresta }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <p class="text-center">Aucune prestation disponible pour le moment.</p>
+        {% endfor %}
+    </div>
 {% endblock %}
