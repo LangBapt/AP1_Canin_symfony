@@ -9,7 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use App\Form\PrestationType;
 
 class PrestationController extends AbstractController
@@ -57,24 +56,22 @@ class PrestationController extends AbstractController
     }
 
 
-    #[Route('/delete/{id}', name: 'prestations_delete', methods: ['POST'])]
-    public function delete(Request $request, PrestationRepository $prestationRepository, EntityManagerInterface $entityManager, $id, CsrfTokenManagerInterface $csrfTokenManager): Response
+    #[Route('/prestation/delete/{id}', name: 'prestation_delete', methods: ['POST'])]
+    public function delete(EntityManagerInterface $entityManager, Prestation $prestation): Response
     {
-        // Récupérer la prestation en question
-        $prestation = $prestationRepository->find($id);
-
-        if ($prestation) {
-            // Supprimer la prestation
-            $entityManager->remove($prestation);
-            $entityManager->flush();
-
-            // Ajouter un message flash pour informer l'utilisateur
-            $this->addFlash('success', 'La prestation a bien été supprimée.');
+        if (!$prestation) {
+            throw $this->createNotFoundException('La prestation n\'existe pas.');
         }
 
-        // Rediriger vers la liste des prestations
+        // Supprimer la prestation
+        $entityManager->remove($prestation);
+        $entityManager->flush();
+
+        // Rediriger vers la liste des prestations après suppression
         return $this->redirectToRoute('prestations');
     }
+
+
 
     #[Route('/add', name: 'prestations_add')]
     public function add(Request $request, EntityManagerInterface $entityManager): Response
