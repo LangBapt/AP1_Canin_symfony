@@ -8,19 +8,19 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav ms-auto"> 
               <li class="nav-item">
-                  <a class="nav-link" href="">Accueil</a>
+                  <a class="nav-link" href="{{ path('app_accueil')}}">Accueil</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="">Présentation</a>
+                  <a class="nav-link" href="{{ path('presentation')}}">Présentation</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ path('prestations')}}">Prestations</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Avis</a>
+                  <a class="nav-link" href="{{ path('avis')}}">Avis</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Contacts</a>
+                  <a class="nav-link" href{{ path('app_contact_liste')}}">Contacts</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="{{ path('app_logout')}}">Déconnexion
@@ -42,23 +42,6 @@
       <div id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" href="">Accueil</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ path('presentation')}}">Présentation</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ path('prestations')}}">Prestations</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="">Avis</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="{{ path('app_login')}}">Connexion
-              <span class="visually-hidden">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{{ path('app_accueil')}}">Accueil</a>
           </li>
           <li class="nav-item">
@@ -70,6 +53,26 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ path('avis')}}">Avis</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{ path('app_login')}}">Connexion
+              <span class="visually-hidden">(current)</span>
+            </a>
+          </li>
+<<<<<<< HEAD
+=======
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_accueil')}}">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="">Présentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('prestations')}}">Prestations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('avis')}}">Avis</a>
+          </li>
+>>>>>>> origin/developp
         </ul>
       </div>
     </div>
