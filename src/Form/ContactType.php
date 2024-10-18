@@ -35,7 +35,7 @@ class ContactType extends AbstractType
                 'attr' => ['placeholder' => 'Entrez votre code postal']
             ])
             ->add('villeContact', TextType::class, [
-                'label' => 'Vile',
+                'label' => 'Ville',
                 'attr' => ['placeholder' => 'Entrez votre ville']
             ])
             ->add('mailContact', EmailType::class, [
