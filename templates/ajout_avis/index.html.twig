@@ -3,21 +3,16 @@
 {% block title %}Ajouter un Avis{% endblock %}
 
 {% block body %}
-
 <div class="example-wrapper"> 
     <h1 class="green-text">Ajouter un Avis</h1>
 
     {{ form_start(form) }}
     <div class="form-container">
-
         <div class="form-elements">
             <label for="descAvis">Donner votre avis</label>
             {{ form_widget(form.descAvis, {'attr': {'placeholder': 'Ecrire votre Avis'}}) }}
-
         </div>
-        <a href= {{path("app_confirmation_a")}}>
         <button type="submit" class="btn-submit">Valider</button>
-
     </div>
     {{ form_end(form) }}
 
