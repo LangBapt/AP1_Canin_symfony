@@ -62,8 +62,12 @@
             {{ message }}
         </div>
     {% endfor %}
+
+    {% if is_granted("ROLE_ADMIN") %}
+        <button onclick="window.location.href='{{ path('app_liste') }}'"> Liste des contacts </button>
+    {% endif %}
 </div>
 
-<a href={{path("app_contact_liste")}} class="button"> Liste des contacts </a>
+
 
 {% endblock %}
