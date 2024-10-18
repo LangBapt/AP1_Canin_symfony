@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 18 oct. 2024 à 09:15
+-- Généré le : ven. 18 oct. 2024 à 15:18
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `message_contact` longtext COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `IDX_4C62E638626DC97C` (`num_user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -101,10 +101,10 @@ CREATE TABLE IF NOT EXISTS `presentation` (
 --
 
 INSERT INTO `presentation` (`id`, `texte_presentation`, `titre_presentation`) VALUES
-(1, 'À propos de Caninéo et de Jack Russel', 'À propos de Caninéo et de Jack Russel'),
-(2, 'Fort d\'une expérience de plus de 15 ans au contact de chiens de toutes races et tailles, Jack Russel a toujours eu une affinité particulière avec nos compagnons à quatre pattes. Dès son plus jeune âge, il a été entouré par des chiens et a développé une passion pour leur bien-être, leur éducation et leur bonheur. Aujourd\'hui, grâce à son expertise et son amour des animaux, il vous propose une gamme complète de services spécialement conçus pour répondre aux besoins de vos chiens.', 'Qui est Jack Russel ?'),
-(3, 'Au fil des années, Jack a eu l\'occasion de travailler avec une grande variété de races, allant des petits chiens de compagnie comme le Chihuahua et le Beagle, aux plus grands comme le Berger Allemand et le Dogue Argentin. Grâce à cette diversité, il a pu acquérir une connaissance approfondie des comportements spécifiques de chaque race et a su s\'adapter aux besoins uniques de chaque chien.\r\n\r\nJack a également suivi plusieurs formations spécialisées dans le comportement canin, l\'éducation positive et les soins canins, afin de toujours offrir le meilleur pour les chiens et leurs propriétaires. Sa volonté de rester à la pointe des innovations dans le domaine lui permet de proposer des prestations de haute qualité, basées sur des méthodes douces et efficaces.', 'Son parcours et ses expériences'),
-(4, 'Sur Caninéo, Jack et son équipe offrent une large gamme de services pour répondre aux différents besoins de vos chiens. Que vous ayez un chiot à éduquer, un chien adulte à entraîner ou simplement besoin d\'un coup de main pour prendre soin de votre animal, nous sommes là pour vous aider.', 'Les prestations proposées par Caninéo'),
+(1, 'À propos de Caninéo et de Jacques Russel', 'À propos de Caninéo et de Jacques Russel'),
+(2, 'Fort d\'une expérience de plus de 15 ans au contact de chiens de toutes races et tailles, Jacques Russel a toujours eu une affinité particulière avec nos compagnons à quatre pattes. Dès son plus jeune âge, il a été entouré par des chiens et a développé une passion pour leur bien-être, leur éducation et leur bonheur. Aujourd\'hui, grâce à son expertise et son amour des animaux, il vous propose une gamme complète de services spécialement conçus pour répondre aux besoins de vos chiens.', 'Qui est Jacques Russel ?'),
+(3, 'Au fil des années, Jacques a eu l\'occasion de travailler avec une grande variété de races, allant des petits chiens de compagnie comme le Chihuahua et le Beagle, aux plus grands comme le Berger Allemand et le Dogue Argentin. Grâce à cette diversité, il a pu acquérir une connaissance approfondie des comportements spécifiques de chaque race et a su s\'adapter aux besoins uniques de chaque chien.\r\n\r\nJacques a également suivi plusieurs formations spécialisées dans le comportement canin, l\'éducation positive et les soins canins, afin de toujours offrir le meilleur pour les chiens et leurs propriétaires. Sa volonté de rester à la pointe des innovations dans le domaine lui permet de proposer des prestations de haute qualité, basées sur des méthodes douces et efficaces.', 'Son parcours et ses expériences'),
+(4, 'Sur Caninéo, Jacques et son équipe offrent une large gamme de services pour répondre aux différents besoins de vos chiens. Que vous ayez un chiot à éduquer, un chien adulte à entraîner ou simplement besoin d\'un coup de main pour prendre soin de votre animal, nous sommes là pour vous aider.', 'Les prestations proposées par Caninéo'),
 (5, 'Grâce à des méthodes d’éducation positive, nous vous aidons à instaurer une relation saine et harmonieuse avec votre chien. Nos séances d\'éducation s\'adaptent à l\'âge, à la race et au caractère de chaque chien. De l\'obéissance de base à la résolution de comportements problématiques, Jack saura vous guider à chaque étape.', '1. Éducation canine'),
 (6, 'Pour que votre chien soit toujours propre et en pleine forme, nous proposons des services de toilettage adaptés à chaque race : bain, coupe, brossage, soins des griffes, et plus encore. Votre compagnon mérite le meilleur !', '2. Toilettage'),
 (7, 'Besoin de vous absenter ? Nous offrons un service de garde et de pension dans un environnement chaleureux et sécurisé. Que ce soit pour une journée ou une période plus longue, vous pouvez partir l\'esprit tranquille, en sachant que votre chien est entre de bonnes mains.', '3. Garde de chiens et pension'),
@@ -126,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `prestation` (
   `texte_presta` longtext COLLATE utf8mb4_unicode_ci,
   `prix_horaire_presta` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `prestation`
@@ -134,7 +134,10 @@ CREATE TABLE IF NOT EXISTS `prestation` (
 
 INSERT INTO `prestation` (`id`, `titre_presta`, `texte_presta`, `prix_horaire_presta`) VALUES
 (1, 'Séance d\'éducation canine', 'Notre personnel propose des séances d\'éducation canine personnalisées pour renforcer la relation maître-chien. Basées sur des méthodes positives, ces séances enseignent des commandes essentielles comme \'assis\', \'rappel\', et \'marche en laisse\', tout en corrigeant les comportements indésirables (sauts, aboiements). Chaque séance est adaptée au tempérament du chien, avec des moments de détente pour favoriser un apprentissage efficace et une intégration harmonieuse dans son environnement.', 40),
-(3, 'Séance d\'éducation pour chiots', 'Offrez à votre chiot les bases d’une éducation solide dès ses premiers mois ! Jacques Russel propose des séances dédiées à la socialisation, à l\'apprentissage de la propreté et aux commandes de base (\"assis\", \"rappel\"). Ces séances l’aident à grandir dans un environnement équilibré et à devenir un compagnon obéissant et bien dans sa peau.', 55);
+(3, 'Séance d\'éducation pour chiots', 'Offrez à votre chiot les bases d’une éducation solide dès ses premiers mois ! Jacques Russel propose des séances dédiées à la socialisation, à l\'apprentissage de la propreté et aux commandes de base (\"assis\", \"rappel\"). Ces séances l’aident à grandir dans un environnement équilibré et à devenir un compagnon obéissant et bien dans sa peau.', 55),
+(7, 'Toilettage canin', 'Offrez à votre compagnon une séance de nettoyage complète réalisée par l\'équipe de Canineo. Nos experts prennent soin du toilettage, du bain et du séchage pour garantir une hygiène parfaite et un pelage sain.', 45),
+(8, 'Promenade', 'Confiez la promenade de votre chien à l\'équipe de Canineo. Nous adaptons chaque sortie aux besoins et au rythme de votre compagnon, garantissant une balade sécurisée et stimulante.', 30),
+(9, 'Rendez-vous nutrition canine', 'Optimisez l\'alimentation de votre chien avec les conseils personnalisés de Canineo. Nos experts en nutrition vous guident pour ajuster son régime alimentaire, assurant ainsi une santé et une vitalité optimales.', 25);
 
 -- --------------------------------------------------------
 
@@ -150,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_IDENTIFIER_EMAIL` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
@@ -158,8 +161,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`) VALUES
 (2, 'admin@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$CyF27DtvOIBFiUTZXgVUeuQCCxrr1xhbYqnwZ0Y0DLKMSrt3iZrEm'),
-(3, 'langloisbaptiste@gmail.com', '[]', '$2y$13$RkiA4NxWThVVqJgecIju5OzSX4Uc9ALxnMsvvoaF2UcfazX6gYrJW'),
-(4, 'mrcostaud@gmail.com', '[]', '$2y$13$I0N.4ge9kwPlezhBtTZZkOnBpKhQnc9.xKmS5Wf1ljZ/rLVrhHKSK');
+(6, 'user@gmail.com', '[]', '$2y$13$7.hWt0D0U14S0H06a5uM7u5BJoO/YifniV5BG54.u6uD9E3v3Aeke');
 
 --
 -- Contraintes pour les tables déchargées
