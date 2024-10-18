@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AvisController extends AbstractController
 {
@@ -32,19 +33,22 @@ class AvisController extends AbstractController
         ]);
     }
 
-    #[Route('/avis/{id}', name: 'avis.delete', methods: ['DELETE'])]
-    public function delete(Avis $avis, EntityManagerInterface $manager, Request $request): Response
+    #[Route('/avis/{id}', name: 'avis.delete')]
+    public function delete(Avis $avis, EntityManagerInterface $manager, Request $request, int $id): Response
     {
-    $data = json_decode($request->getContent(), true);
-    if ($this->isCsrfTokenValid('delete' . $avis->getId(), $data['_token'])) {
-        $manager->remove($avis);
-        $manager->flush();
+        $data = json_decode($request->getContent(), true);
+        $repository = $manager->getRepository(Avis::class);
+        $avis = $repository->find($id);
 
-        $this->addFlash('success', 'Votre commentaire a bien été supprimé.');
-        return new JsonResponse(['success' => true], 200);
-    }
-    
-    return new JsonResponse(['error' => 'Token invalide'], 400);
-    }
+        if ($avis) { 
+            $manager->remove($avis);
+            $manager->flush();
 
+
+            return $this->redirectToRoute('avis');
+            
+        }
+
+    }
 }
+

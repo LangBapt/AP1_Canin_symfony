@@ -6,6 +6,40 @@
 
 <div class="example-wrapper">
     <h1 class="green-text">Avis</h1>
+{% if is_granted('ROLE_ADMIN') %}
+    <div class="avis-container">
+
+
+    
+        {% for Nouvavis in AVV %}
+            <div class="avis-card">
+                <h3>{{ Nouvavis.numUser }}</h3>
+                <p>{{ Nouvavis.descAvis }}</p>
+<div class="avis__delete">
+    <form name="avis[delete]" method="post" action="{{ path('avis.delete', {'id': Nouvavis.id}) }}">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ Nouvavis.id) }}">
+        <button type="submit" class="btn delete-btn" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet avis ?');">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewbox="0 0 20 20" fill="red">
+                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+            </svg>
+        
+        </button>
+    </form>
+</div>
+
+
+                
+            </div>
+        {% endfor %}
+    </div>
+        <a href= {{path("app_ajout_avis")}}>
+        <button type="submit" class="btn-submit">Ajouter un Avis</button>
+        </a>
+        {{ form_end(form) }}
+    </div>
+</div>
+{% else %}
 
     <div class="avis-container">
 
@@ -19,7 +53,7 @@
     <form name="avis[delete]" method="post" action="{{ path('avis.delete', {'id': Nouvavis.id}) }}">
         <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ Nouvavis.id) }}">
-        <button type="submit" class="btn delete-btn">
+        <button type="submit" class="btn delete-btn" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet avis ?');">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewbox="0 0 20 20" fill="red">
                 <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
             </svg>
@@ -28,11 +62,11 @@
     </form>
 </div>
 
+
                 
             </div>
         {% endfor %}
     </div>
-
         <a href= {{path("app_ajout_avis")}}>
         <button type="submit" class="btn-submit">Ajouter un Avis</button>
         </a>
@@ -40,6 +74,7 @@
     </div>
 </div>
 
+{% endif %}
 <style>
     .example-wrapper { 
         margin: 1em auto; 
@@ -120,6 +155,18 @@
     .btn-submit:hover {
         background-color: darkgreen;
     }
+    .btn.delete-btn {
+    padding: 5px 10px;  /* Réduit le padding autour du bouton */
+    font-size: 12px;    /* Réduit la taille de la police */
+    border-radius: 4px; /* Optional: ajustez le coin arrondi */
+}
+
+.btn.delete-btn svg {
+    width: 16px; /* Réduit la taille de l'icône SVG à l'intérieur du bouton */
+    height: 16px;
+    vertical-align: middle; /* Assure que l'icône est bien alignée avec le texte */
+}
+
 </style>
 
 {% endblock %}
