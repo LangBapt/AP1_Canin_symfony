@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+<h1>Contactez-nous</h1>
+
+    {{ form_start(form) }}
+
+    <table>
+        <tr>
+            <td>{{ form_label(form.nomContact) }}</td>
+            <td>{{ form_widget(form.nomContact) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.prenomContact) }}</td>
+            <td>{{ form_widget(form.prenomContact) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.adresseContact) }}</td>
+            <td>{{ form_widget(form.adresseContact) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.cpContact) }}</td>
+            <td>{{ form_widget(form.cpContact) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.villeContact) }}</td>
+            <td>{{ form_widget(form.villeContact) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.mailContact) }}</td>
+            <td>{{ form_widget(form.mailContact) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.numTelContact) }}</td>
+            <td>
+            {{ form_widget(form.numTelContact) }}
+            {{ form_errors(form.numTelContact) }}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.messageContact) }}</td>
+            <td>{{ form_widget(form.messageContact) }}</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">Envoyer</button>
+            </td>
+        </tr>
+    </table>
+    {{ form_end(form) }}
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% if is_granted("ROLE_ADMIN") %}
+        <button onclick="window.location.href='{{ path('app_liste') }}'"> Liste des contacts </button>
+    {% endif %}
+</div>
+
+
+
+{% endblock %}
