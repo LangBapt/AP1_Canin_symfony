@@ -1,4 +1,5 @@
-Caninéo - Application de gestion des avis et des prestations
+# Caninéo - Application de gestion des avis et des prestations
+
 Table des matières
 
     Introduction
@@ -8,7 +9,7 @@ Table des matières
     Utilisation
     Tests
 
-Introduction
+## Introduction
 
 Canineo est une application Symfony permettant de gérer des prestations de dressage canin ainsi que les avis des clients. L'application inclut des fonctionnalités pour les utilisateurs et les administrateurs. Les utilisateurs peuvent consulter et laisser des avis, tandis que les administrateurs peuvent gérer les prestations et les avis, avec des options d'ajout, de modification, et de suppression.
 Fonctionnalités
@@ -20,7 +21,7 @@ Fonctionnalités
     Authentification et gestion des rôles (ROLE_USER, ROLE_ADMIN).
     Interface utilisateur responsive pour consulter les prestations et laisser des avis.
 
-Prérequis
+## Prérequis
 
 Avant d'installer ce projet, assurez-vous d'avoir les éléments suivants :
 
@@ -29,7 +30,7 @@ Avant d'installer ce projet, assurez-vous d'avoir les éléments suivants :
     Symfony CLI
     MySQL (ou autre base de données compatible)
 
-Installation
+## Installation
 
 Suivez les étapes ci-dessous pour installer et configurer le projet localement :
 
@@ -72,7 +73,7 @@ En tant qu'administrateur :
     Visualiser les demandes de contact des utilisateurs.
     Modifier la présentation de l'activité de l'entreprise.
 
-Contribution
+## Contribution
 
 Les contributions sont les bienvenues ! Pour contribuer :
 
@@ -82,13 +83,13 @@ Les contributions sont les bienvenues ! Pour contribuer :
     Poussez vos modifications (git push origin feature/nouvelle-fonctionnalite).
     Ouvrez une Pull Request.
 
-Support
+## Support
 
 Si vous avez des questions ou avez besoin de support, veuillez ouvrir une issue.
 
 php bin/phpunit
 
-Licence
+## Licence
 
 Le contenu et le code source de ce site sont la propriété exclusive de Caninéo. Tous droits réservés.
 
@@ -97,3 +98,19 @@ Aucune partie de ce site, y compris le texte, les images, les fichiers, ou le co
 L'utilisation de ce site est soumise aux conditions générales définies par Caninéo. Toute tentative d'infraction aux droits de propriété intellectuelle entraînera des poursuites conformément à la législation en vigueur.
 
 Pour toute demande concernant l'utilisation de ce site ou l'obtention de droits d'utilisation, veuillez contacter Caninéo
+
+## Contributeurs :
+
+@TheoL05
+@MrCostaud
+@LangBapt
+
+## Accès à l'application :
+
+Compte Admin :
+    login : admin@gmail.com;
+    mdp : admin123;
+
+Compte Utilisateur :
+    login : user@gmail.com
+    mdp : user123;
