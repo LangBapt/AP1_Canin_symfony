@@ -9,7 +9,7 @@ use App\Repository\ContactRepository;
 
 class ContactListeController extends AbstractController
 {
-    #[Route('/contact/liste', name: 'app_contact_liste')]
+    #[Route('/contact_liste', name: 'app_liste')]
     public function index(ContactRepository $contact): Response
     {
         $contacts = $contact->findAll();
