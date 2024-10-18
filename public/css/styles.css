@@ -1,0 +1,138 @@
+/* Conteneur principal pour centrer l'encart */
+.container-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Hauteur de la page entière */
+    background-color: #f7f7f7; /* Arrière-plan léger */
+}
+
+/* Encart de connexion */
+.login-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px; /* Largeur maximale de l'encart */
+    width: 100%;
+    text-align: left; /* Alignement du texte à gauche */
+}
+
+/* Centrer le titre du formulaire */
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Marges supplémentaires */
+.mt-3 {
+    margin-top: 1rem;
+}
+
+
+/* Centrer le formulaire sur la page */
+.container-register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* Encart du formulaire */
+.register-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Titre */
+.register-box h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Champs du formulaire */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Champ de texte (email, mot de passe) */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+/* Champ de case à cocher (agreeTerms) */
+.form-check-input {
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+}
+
+.form-check-label {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Bouton */
+.btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+/* Alignement du texte sous le formulaire */
+.text-center {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.navbar-logo {
+    height: 40px; /* Ajuste la hauteur du logo */
+    margin-right: 10px; /* Espace entre le logo et le texte de la navbar */
+}
+
+/* Styles pour les éléments de la navbar */
+.navbar-nav .nav-link {
+    color: white; /* Couleur du texte des liens */
+    margin-left: 15px; /* Espace entre les éléments de la navbar */
+}
+
+/* Container des prestations utilisateur (non admin) */
+.prestation-card {
+    background-color: #28a745; /* Fond vert */
+    color: white; /* Texte blanc */
+    padding: 20px;
+    border-radius: 8px; /* Arrondir les bords */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Léger ombrage */
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/* Espacer les prestations par rapport aux bords de l'écran */
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Centrer les textes dans les cartes des prestations */
+.prestation-user h2, 
+.prestation-user h3, 
+.prestation-user p {
+    text-align: center;
+}
