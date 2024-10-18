@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
@@ -33,13 +35,17 @@ class Contact
     private ?string $mailContact = null;
 
     #[ORM\Column(length: 10, nullable: true)]
+    #[Assert\Regex(
+        pattern: "/^(\+33|0)[1-9](\s?\d{2}){4}$/",
+        message: "Le numéro de téléphone n'est pas valide. Veuillez entrer un numéro de téléphone valide."
+    )]
     private ?string $numTelContact = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $messageContact = null;
 
     #[ORM\ManyToOne(inversedBy: 'contacts')]
-    private ?utilisateur $numUser = null;
+    private ?user $numUser = null;
 
     public function getId(): ?int
     {
@@ -142,12 +148,12 @@ class Contact
         return $this;
     }
 
-    public function getNumUser(): ?utilisateur
+    public function getNumUser(): ?user
     {
         return $this->numUser;
     }
 
-    public function setNumUser(?utilisateur $numUser): static
+    public function setNumUser(?user $numUser): static
     {
         $this->numUser = $numUser;
 
