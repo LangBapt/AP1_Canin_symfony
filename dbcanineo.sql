@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 18 oct. 2024 à 07:22
+-- Généré le : ven. 18 oct. 2024 à 09:15
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -126,17 +126,15 @@ CREATE TABLE IF NOT EXISTS `prestation` (
   `texte_presta` longtext COLLATE utf8mb4_unicode_ci,
   `prix_horaire_presta` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `prestation`
 --
 
 INSERT INTO `prestation` (`id`, `titre_presta`, `texte_presta`, `prix_horaire_presta`) VALUES
-(1, 'Séance d\'éducation canine', 'Jacques Russel propose des séances d\'éducation canine personnalisées pour renforcer la relation maître-chien. Basées sur des méthodes positives, ces séances enseignent des commandes essentielles comme \'assis\', \'rappel\', et \'marche en laisse\', tout en corrigeant les comportements indésirables (sauts, aboiements). Chaque séance est adaptée au tempérament du chien, avec des moments de détente pour favoriser un apprentissage efficace et une intégration harmonieuse dans son environnement.', 45),
-(3, 'Séance d\'éducation pour chiots', 'Offrez à votre chiot les bases d’une éducation solide dès ses premiers mois ! Jacques Russel propose des séances dédiées à la socialisation, à l\'apprentissage de la propreté et aux commandes de base (\"assis\", \"rappel\"). Ces séances l’aident à grandir dans un environnement équilibré et à devenir un compagnon obéissant et bien dans sa peau.', 55),
-(4, 'Garde du chien', 'Jacques Russel se propose à prendre soin de votre compagnon canin lorsque vous partez en vacances par exemple ou pour tout autre voyage impossible à réaliser avec votre chien.', 1),
-(5, 'Entraînement sportif', 'Séance d\'entraînement pour diverses compétitions canines', 50);
+(1, 'Séance d\'éducation canine', 'Notre personnel propose des séances d\'éducation canine personnalisées pour renforcer la relation maître-chien. Basées sur des méthodes positives, ces séances enseignent des commandes essentielles comme \'assis\', \'rappel\', et \'marche en laisse\', tout en corrigeant les comportements indésirables (sauts, aboiements). Chaque séance est adaptée au tempérament du chien, avec des moments de détente pour favoriser un apprentissage efficace et une intégration harmonieuse dans son environnement.', 40),
+(3, 'Séance d\'éducation pour chiots', 'Offrez à votre chiot les bases d’une éducation solide dès ses premiers mois ! Jacques Russel propose des séances dédiées à la socialisation, à l\'apprentissage de la propreté et aux commandes de base (\"assis\", \"rappel\"). Ces séances l’aident à grandir dans un environnement équilibré et à devenir un compagnon obéissant et bien dans sa peau.', 55);
 
 -- --------------------------------------------------------
 
@@ -152,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_IDENTIFIER_EMAIL` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
@@ -160,7 +158,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`) VALUES
 (2, 'admin@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$CyF27DtvOIBFiUTZXgVUeuQCCxrr1xhbYqnwZ0Y0DLKMSrt3iZrEm'),
-(3, 'langbapt@gmail.com', '[]', '$2y$13$RkiA4NxWThVVqJgecIju5OzSX4Uc9ALxnMsvvoaF2UcfazX6gYrJW');
+(3, 'langloisbaptiste@gmail.com', '[]', '$2y$13$RkiA4NxWThVVqJgecIju5OzSX4Uc9ALxnMsvvoaF2UcfazX6gYrJW'),
+(4, 'mrcostaud@gmail.com', '[]', '$2y$13$I0N.4ge9kwPlezhBtTZZkOnBpKhQnc9.xKmS5Wf1ljZ/rLVrhHKSK');
 
 --
 -- Contraintes pour les tables déchargées
