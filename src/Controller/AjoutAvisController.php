@@ -13,30 +13,24 @@ use Symfony\Component\Routing\Attribute\Route;
 class AjoutAvisController extends AbstractController
 {
     #[Route('/ajoutavis', name: 'app_ajout_avis')]
+    #[IsGranted('ROLE_USER')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
-
-
-        $avis= new Avis();
-        $form=$this->createForm(AvisType::class, $avis);
+        $avis = new Avis();
+        $form = $this->createForm(AvisType::class, $avis);
         $form->handleRequest($request);
-
-        $AvisRepository=$entityManager->getRepository(Avis::class);
-        $AVV=$AvisRepository->findAll();
-
-        if($form->isSubmitted() && $form->isValid()){
+    
+        if ($form->isSubmitted() && $form->isValid()) {
+            $avis->setNumUser($this->getUser()); 
             $entityManager->persist($avis);
-
             $entityManager->flush();
-
-            return $this->render('confirmation_a/index.html.twig');
+    
+            return $this->redirectToRoute('app_confirmation_a');
         }
-
-
-
+    
         return $this->render('ajout_avis/index.html.twig', [
             'form' => $form->createView(),
-            'AVV'=>$AVV,
         ]);
     }
+    
 }
