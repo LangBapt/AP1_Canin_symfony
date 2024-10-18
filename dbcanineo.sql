@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 18 oct. 2024 à 06:42
+-- Généré le : ven. 18 oct. 2024 à 07:22
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -91,10 +91,27 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 DROP TABLE IF EXISTS `presentation`;
 CREATE TABLE IF NOT EXISTS `presentation` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `texte_presentation` longtext COLLATE utf8mb4_unicode_ci,
-  `titre_presentation` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `texte_presentation` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `titre_presentation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `presentation`
+--
+
+INSERT INTO `presentation` (`id`, `texte_presentation`, `titre_presentation`) VALUES
+(1, 'À propos de Caninéo et de Jack Russel', 'À propos de Caninéo et de Jack Russel'),
+(2, 'Fort d\'une expérience de plus de 15 ans au contact de chiens de toutes races et tailles, Jack Russel a toujours eu une affinité particulière avec nos compagnons à quatre pattes. Dès son plus jeune âge, il a été entouré par des chiens et a développé une passion pour leur bien-être, leur éducation et leur bonheur. Aujourd\'hui, grâce à son expertise et son amour des animaux, il vous propose une gamme complète de services spécialement conçus pour répondre aux besoins de vos chiens.', 'Qui est Jack Russel ?'),
+(3, 'Au fil des années, Jack a eu l\'occasion de travailler avec une grande variété de races, allant des petits chiens de compagnie comme le Chihuahua et le Beagle, aux plus grands comme le Berger Allemand et le Dogue Argentin. Grâce à cette diversité, il a pu acquérir une connaissance approfondie des comportements spécifiques de chaque race et a su s\'adapter aux besoins uniques de chaque chien.\r\n\r\nJack a également suivi plusieurs formations spécialisées dans le comportement canin, l\'éducation positive et les soins canins, afin de toujours offrir le meilleur pour les chiens et leurs propriétaires. Sa volonté de rester à la pointe des innovations dans le domaine lui permet de proposer des prestations de haute qualité, basées sur des méthodes douces et efficaces.', 'Son parcours et ses expériences'),
+(4, 'Sur Caninéo, Jack et son équipe offrent une large gamme de services pour répondre aux différents besoins de vos chiens. Que vous ayez un chiot à éduquer, un chien adulte à entraîner ou simplement besoin d\'un coup de main pour prendre soin de votre animal, nous sommes là pour vous aider.', 'Les prestations proposées par Caninéo'),
+(5, 'Grâce à des méthodes d’éducation positive, nous vous aidons à instaurer une relation saine et harmonieuse avec votre chien. Nos séances d\'éducation s\'adaptent à l\'âge, à la race et au caractère de chaque chien. De l\'obéissance de base à la résolution de comportements problématiques, Jack saura vous guider à chaque étape.', '1. Éducation canine'),
+(6, 'Pour que votre chien soit toujours propre et en pleine forme, nous proposons des services de toilettage adaptés à chaque race : bain, coupe, brossage, soins des griffes, et plus encore. Votre compagnon mérite le meilleur !', '2. Toilettage'),
+(7, 'Besoin de vous absenter ? Nous offrons un service de garde et de pension dans un environnement chaleureux et sécurisé. Que ce soit pour une journée ou une période plus longue, vous pouvez partir l\'esprit tranquille, en sachant que votre chien est entre de bonnes mains.', '3. Garde de chiens et pension'),
+(8, 'Pour ceux qui n’ont pas toujours le temps de sortir leur chien, Caninéo propose un service de promenade. Votre chien profitera de sorties régulières et adaptées à ses besoins d’exercice et de socialisation.', '4. Promenade'),
+(9, 'L’alimentation joue un rôle clé dans la santé et le bien-être de votre chien. Nous vous conseillons sur les meilleures options alimentaires et vous aidons à choisir les produits qui correspondent aux besoins spécifiques de votre animal.', '5. Conseils en alimentation et bien-être'),
+(10, 'Avec Caninéo, Jack Russel s\'engage à prendre soin de votre chien comme s\'il s\'agissait du sien. Son objectif est simple : améliorer la qualité de vie de chaque chien, tout en offrant aux propriétaires un accompagnement personnalisé et bienveillant. Faites confiance à un expert passionné, pour des prestations canines de qualité !', 'Caninéo'),
+(11, 'Si vous avez des questions ou souhaitez en savoir plus, n’hésitez pas à nous contacter via notre formulaire de contact ou à consulter nos prestations détaillées sur la page dédiée. Caninéo, pour le bien-être et la joie de vos chiens.', 'Comment nous contacter');
 
 -- --------------------------------------------------------
 
