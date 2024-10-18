@@ -99,3 +99,14 @@
     text-align: center;
     margin-top: 10px;
 }
+
+.navbar-logo {
+    height: 40px; /* Ajuste la hauteur du logo */
+    margin-right: 10px; /* Espace entre le logo et le texte de la navbar */
+}
+
+/* Styles pour les éléments de la navbar */
+.navbar-nav .nav-link {
+    color: white; /* Couleur du texte des liens */
+    margin-left: 15px; /* Espace entre les éléments de la navbar */
+}
