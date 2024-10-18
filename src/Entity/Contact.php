@@ -45,7 +45,7 @@ class Contact
     private ?string $messageContact = null;
 
     #[ORM\ManyToOne(inversedBy: 'contacts')]
-    private ?utilisateur $numUser = null;
+    private ?user $numUser = null;
 
     public function getId(): ?int
     {
@@ -148,12 +148,12 @@ class Contact
         return $this;
     }
 
-    public function getNumUser(): ?utilisateur
+    public function getNumUser(): ?user
     {
         return $this->numUser;
     }
 
-    public function setNumUser(?utilisateur $numUser): static
+    public function setNumUser(?user $numUser): static
     {
         $this->numUser = $numUser;
 

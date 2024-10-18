@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une prestation{% endblock %}
+
+{% block body %}
+<div class="container-form">
+    <div class="form-box">
+        <h1 class="text-center">Ajouter une nouvelle prestation</h1>
+
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.nom, 'Nom de la prestation') }}
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.descriptif, 'Descriptif') }}
+                {{ form_widget(form.descriptif, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.prixHoraire, 'Prix horaire') }}
+                {{ form_widget(form.prixHoraire, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <button class="btn btn-success">Ajouter</button>
+        {{ form_end(form) }}
+
+        <a href="{{ path('prestations') }}" class="btn btn-secondary">Retour</a>
+    </div>
+</div>
+{% endblock %}
