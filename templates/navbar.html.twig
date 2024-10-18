@@ -19,9 +19,15 @@
               <li class="nav-item">
                   <a class="nav-link" href="{{ path('avis')}}">Avis</a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link" href{{ path('app_contact_liste')}}">Contacts</a>
-              </li>
+              {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('app_contact_liste')}}">Contacts</a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('app_contact')}}">Contacts</a>
+                </li>
+              {% endif %}
               <li class="nav-item">
                 <a class="nav-link active" href="{{ path('app_logout')}}">Déconnexion
                     <span class="visually-hidden">(current)</span>
