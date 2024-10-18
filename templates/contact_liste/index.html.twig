@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des contacts{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    table {
+        outline-color: black; 
+        outline:auto;
+    }
+    td {
+        width:500px;
+        outline-color: black;
+         outline:auto;
+    }
+    tr {outline-color: black; outline:auto;}
+</style>
+
+<div class="example-wrapper">
+    <div>
+    {% for con in contacts %}
+    <table>
+        <tr>
+        <td><h3>Id</h3></td>
+        <td><h3> {{con.id}} </h3></td>
+        </tr>
+        <tr>
+        <td><h3>Nom</h3></td>
+        <td><h3> {{con.nomContact}} </h3></td>
+        </tr>
+        <tr>
+        <td><h3>Prenom</h3></td>
+        <td><h3> {{con.prenomContact}} </h3></td>
+        </tr>
+        <tr>
+        <td><h3>Adresse</h3></td>
+        <td><h3> {{con.adresseContact}} </h3></td>
+        </tr>
+        <tr>
+        <td><h3>Code postal</h3></td>
+        <td><h3> {{con.cpContact}} </h3></td>
+        </tr>
+        <tr>
+        <td><h3>Ville</h3></td>
+        <td><h3> {{con.villeContact}} </h3></td>
+        </tr>
+        <tr>
+        <td><h3>Email</h3></td>
+        <td><h3> {{con.mailContact}} </h3></td>
+        </tr>
+        <tr>
+        <td><h3>Numéro</h3></td>
+        <td><h3> {{con.numTelContact}} </h3></td>
+        </tr>
+        <tr>
+        <td><h3>Message</h3></td>
+        <td><p> {{con.messageContact}} </p></td>
+        </tr>
+    </table>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}
