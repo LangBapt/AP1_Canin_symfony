@@ -1,34 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PrestationController!{% endblock %}
+{% block title %}Nos Prestations{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1 class="text-center">Nos Prestations</h1>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('prestations_add') }}" class="btn btn-success mb-4 d-block mx-auto" style="width: fit-content;">Ajouter une prestation</a>
+    {% endif %}
+    <div class="row justify-content-center"> <!-- Centrer les prestations -->
+        {% for prestation in prestations %}
+            <div class="col-md-4 mb-4 prestation-card"> <!-- Ajouter une classe spéciale pour les prestations -->
+                <div class="card h-100">
+                    <div class="card-body">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <form action="{{ path('prestations_update', {id: prestation.id}) }}" method="POST">
+                                <label for="nom">Nom :</label>
+                                <input type="text" name="nom" class="form-control mb-2" value="{{ prestation.titrePresta }}">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+                                <label for="prix">Prix horaire(€) :</label>
+                                <input type="number" name="prix" class="form-control mb-2" value="{{ prestation.prixHorairePresta }}">
 
                                 <label for="descriptif">Descriptif :</label>
                                 <textarea name="descriptif" class="form-control mb-2">{{ prestation.textePresta }}</textarea>
                                 
                                 <div class="d-flex justify-content-between mt-3"> <!-- Centrer les boutons et les espacer -->
                                     <button type="submit" class="btn btn-primary w-45">Modifier</button>
-                                    
-                                    <form action="{{ path('prestations_delete', {id: prestation.id}) }}" method="POST" class="d-inline-block">
-                                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('delete' ~ prestation.id) }}">
-                                        <button class="btn btn-danger w-45" type="submit" onclick="return confirm('Voulez-vous vraiment supprimer cette prestation ?');">
-                                            Supprimer
-                                        </button>
-                                    </form>
+                                </form>  
+                                <form action="{{ path('prestation_delete', {id: prestation.id}) }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cette prestation ?');">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ prestation.id) }}">
+                                    <button class="btn btn-danger">Supprimer</button>
+                                </form>
                                 </div>
-                            </form>
                         {% else %}
-                            <h2 class="card-title text-center">{{ prestation.titrePresta }}</h2>
-                            <h3 class="card-price text-center">{{ prestation.prixHorairePresta }} €/heure</h3>
-                            <p class="card-text text-center">{{ prestation.textePresta }}</p>
+                            <div class="prestation-user">
+                                <h2 class="card-title text-center">{{ prestation.titrePresta }}</h2>
+                                <h3 class="card-price text-center">{{ prestation.prixHorairePresta }} €/heure</h3>
+                                <p class="card-text encadre-blanc">{{ prestation.textePresta }}</p>
+                            </div>
                         {% endif %}
                     </div>
                 </div>

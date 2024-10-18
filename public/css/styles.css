@@ -99,3 +99,40 @@
     text-align: center;
     margin-top: 10px;
 }
+
+.navbar-logo {
+    height: 40px; /* Ajuste la hauteur du logo */
+    margin-right: 10px; /* Espace entre le logo et le texte de la navbar */
+}
+
+/* Styles pour les éléments de la navbar */
+.navbar-nav .nav-link {
+    color: white; /* Couleur du texte des liens */
+    margin-left: 15px; /* Espace entre les éléments de la navbar */
+}
+
+/* Container des prestations utilisateur (non admin) */
+.prestation-card {
+    background-color: #28a745; /* Fond vert */
+    color: white; /* Texte blanc */
+    padding: 20px;
+    border-radius: 8px; /* Arrondir les bords */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Léger ombrage */
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/* Espacer les prestations par rapport aux bords de l'écran */
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Centrer les textes dans les cartes des prestations */
+.prestation-user h2, 
+.prestation-user h3, 
+.prestation-user p {
+    text-align: center;
+}
