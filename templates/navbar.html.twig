@@ -45,7 +45,7 @@
             <a class="nav-link" href="">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Présentation</a>
+            <a class="nav-link" href="{{ path('presentation')}}">Présentation</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ path('prestations')}}">Prestations</a>
@@ -57,6 +57,18 @@
             <a class="nav-link active" href="{{ path('app_login')}}">Connexion
               <span class="visually-hidden">(current)</span>
             </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_accueil')}}">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('presentation')}}">Présentation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('prestations')}}">Prestations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('avis')}}">Avis</a>
           </li>
         </ul>
       </div>
