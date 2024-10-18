@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un Avis{% endblock %}
+
+{% block body %}
+<div class="example-wrapper"> 
+    <h1 class="green-text">Ajouter un Avis</h1>
+
+    {{ form_start(form) }}
+    <div class="form-container">
+        <div class="form-elements">
+            <label for="descAvis">Donner votre avis</label>
+            {{ form_widget(form.descAvis, {'attr': {'placeholder': 'Ecrire votre Avis'}}) }}
+        </div>
+        <button type="submit" class="btn-submit">Valider</button>
+    </div>
+    {{ form_end(form) }}
+
+    <style>
+        .example-wrapper { 
+            margin: 1em auto; 
+            max-width: 800px; 
+            width: 95%; 
+            font: 18px/1.5 sans-serif; 
+            text-align: center; 
+            border: 1px solid #ccc; 
+            padding: 20px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .green-text { 
+            color: green; 
+            display: inline-block; 
+            vertical-align: middle; 
+            margin-bottom: 20px; 
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-elements {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 10px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .form-elements input, .form-elements textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .btn-submit {
+            background-color: green;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: darkgreen;
+        }
+    </style>
+</div>
+
+{% endblock %}

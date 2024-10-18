@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une prestation{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <div class="container-login">
+        <div class="login-box">
+        <h1 class="text-center">Ajouter une nouvelle prestation</h1>
+
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.titrePresta, 'Nom de la prestation') }}
+                {{ form_widget(form.titrePresta, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.textePresta, 'Descriptif') }}
+                {{ form_widget(form.textePresta, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.prixHorairePresta, 'Prix horaire') }}
+                {{ form_widget(form.prixHorairePresta, {'attr': {'class': 'form-control'}}) }}
+            </div>
+
+            <button class="btn btn-success">Ajouter</button>
+        {{ form_end(form) }}
+
+        <a href="{{ path('prestations') }}" class="btn btn-secondary mt-4">Retour</a>
+    </div>
+</div>
+{% endblock %}
+
