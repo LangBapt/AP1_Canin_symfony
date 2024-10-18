@@ -7,12 +7,11 @@
     {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('prestations_add') }}" class="btn btn-success mb-4 d-block mx-auto" style="width: fit-content;">Ajouter une prestation</a>
     {% endif %}
-    <div class="row">
+    <div class="row justify-content-center"> <!-- Centrer les prestations -->
         {% for prestation in prestations %}
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4 prestation-card"> <!-- Ajouter une classe spéciale pour les prestations -->
                 <div class="card h-100">
                     <div class="card-body">
-                        {#Affichage pour les utilisateurs admin#}
                         {% if is_granted('ROLE_ADMIN') %}
                             <form action="{{ path('prestations_update', {id: prestation.id}) }}" method="POST">
                                 <label for="nom">Nom :</label>
@@ -27,17 +26,17 @@
                                 <div class="d-flex justify-content-between mt-3"> <!-- Centrer les boutons et les espacer -->
                                     <button type="submit" class="btn btn-primary w-45">Modifier</button>
                                 </form>  
-                                {# Formulaire de suppression #}
-                                    <form action="{{ path('prestation_delete', {id: prestation.id}) }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cette prestation ?');">
+                                <form action="{{ path('prestation_delete', {id: prestation.id}) }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer cette prestation ?');">
                                     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ prestation.id) }}">
-                                        <button class="btn btn-danger">Supprimer</button>
-                                    </form>
+                                    <button class="btn btn-danger">Supprimer</button>
+                                </form>
                                 </div>
                         {% else %}
-
-                            <h2 class="card-title text-center">{{ prestation.titrePresta }}</h2>
-                            <h3 class="card-price text-center">{{ prestation.prixHorairePresta }} €/heure</h3>
-                            <p class="card-text text-left">{{ prestation.textePresta }}</p>
+                            <div class="prestation-user">
+                                <h2 class="card-title text-center">{{ prestation.titrePresta }}</h2>
+                                <h3 class="card-price text-center">{{ prestation.prixHorairePresta }} €/heure</h3>
+                                <p class="card-text encadre-blanc">{{ prestation.textePresta }}</p>
+                            </div>
                         {% endif %}
                     </div>
                 </div>

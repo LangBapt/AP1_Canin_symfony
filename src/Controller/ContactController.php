@@ -37,7 +37,7 @@ class ContactController extends AbstractController
         // Affichage du formulaire avec d'éventuelles erreurs
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),
-            
+
         ]);
     }
 }

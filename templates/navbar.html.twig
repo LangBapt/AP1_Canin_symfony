@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav ms-auto"> 
               <li class="nav-item">
-                  <a class="nav-link" href="">Accueil</a>
+                  <a class="nav-link" href="{{ path('app_accueil')}}">Accueil</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{{ path('presentation')}}">Présentation</a>
@@ -17,8 +17,17 @@
                   <a class="nav-link" href="{{ path('prestations')}}">Prestations</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Avis</a>
+                  <a class="nav-link" href="{{ path('avis')}}">Avis</a>
               </li>
+              {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('app_contact_liste')}}">Contacts</a>
+                </li>
+              {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ path('app_contact')}}">Contacts</a>
+                </li>
+              {% endif %}
               <li class="nav-item">
                   <a class="nav-link" href="{{ path('app_contact')}}">Contacts</a>
               </li>
@@ -42,7 +51,7 @@
       <div id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link" href="">Accueil</a>
+            <a class="nav-link" href="{{ path('app_accueil')}}">Accueil</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ path('presentation')}}">Présentation</a>
